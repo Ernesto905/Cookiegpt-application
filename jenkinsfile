@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Push') {
+            steps {
+                echo 'Pushing docker image'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh 'kubectl apply -f your-k8s-config.yaml'
+            }
+        }
+    }
+}

@@ -2,22 +2,24 @@
 
 ## Quick Setup, without the pipeline
 
+### Ensure you are in the src file and that you have python 3.9.6 installed  
+
 1. Create a new virtual environment:
 
-   ```bash
+   ```bash/zsh
    $ python -m venv venv
    $ . venv/bin/activate
    ```
 
 2. Install the requirements:
 
-   ```bash
+   ```bash/zsh
    $ pip install -r requirements.txt
    ```
 
 3. Make a copy of the example environment variables file:
 
-   ```bash
+   ```bash/zsh
    $ cp .env.example .env
    ```
 

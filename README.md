@@ -1,8 +1,8 @@
-# COOKIEGPT - A simple application, overengineered
+# COOKIEGPT - A simple application, overengineered 👩‍🔧🔧⚙️🚀
 
 ## Quick Setup, without the pipeline
 
-### Ensure you are in the src file and that you have python 3.9.6 installed  
+### Ensure you are in the src file and that you have python >= 3.7 installed 
 
 1. Create a new virtual environment:
 

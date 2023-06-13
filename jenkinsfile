@@ -30,11 +30,6 @@ pipeline {
                 echo 'Testing...'
             }
         }
-        stage('Push') {
-            steps {
-                echo 'Pushing docker image'
-            }
-        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'

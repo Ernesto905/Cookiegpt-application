@@ -10,7 +10,6 @@ pipeline {
 
                 sh '''
                     cd src
-                    docker --help
                     docker build -t ernesto906/cookiegpt .
                 '''
                 
@@ -23,7 +22,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker push ernesto/cookiegpt'
+                sh 'docker push ernesto906/cookiegpt'
             }
         }
         stage('Test') {

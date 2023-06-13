@@ -32,3 +32,10 @@
    ```
 
 You should now be able to access the app at [http://localhost:5000](http://localhost:5000)!
+
+## Booting up the redis database
+6. Ensure you have redis installed in your local machine
+
+7. run the following command to boot up a redis server $ redis-server
+
+### Note: There is a running counter in the redis db. To reset this, run $ redis-cli set count 0

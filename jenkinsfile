@@ -1,9 +1,28 @@
 pipeline {
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    }
     stages {
+        // Begins the process of building a docker image and uploading it to dockerhub 
         stage('Build') {
             steps {
-                echo 'Building..'
+
+                sh '''
+                    cd src
+                    docker build -t ernesto906/cookiegpt .
+                '''
+                
+            }
+        }
+        stage('Login') {
+            steps {
+            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('Push') {
+            steps {
+                sh 'docker push ernesto/cookiegpt'
             }
         }
         stage('Test') {
@@ -19,7 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'kubectl apply -f your-k8s-config.yaml'
+                // sh 'kubectl apply -f your-k8s-config.yaml'
             }
         }
     }

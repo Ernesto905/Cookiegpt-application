@@ -1,0 +1,20 @@
+The logic for building your application should be defined in your Dockerfile, 
+while the logic for building the Docker image and uploading it to a Docker registry 
+should be defined in your Jenkins pipeline.
+
+Here's a bit more detail:
+
+    Dockerfile: The Dockerfile is a text document that contains all the commands a 
+    user could call on the command line to assemble an image. In your case, it would 
+    include the commands to set up the environment for your application 
+    (like installing necessary packages), copy your source code into the image, 
+    and set the command to run your application.
+
+    Jenkins Pipeline: The Jenkins pipeline automates the process of 
+    building the Docker image from the Dockerfile, testing the image, and then 
+    \pushing the image to a Docker registry if the tests pass. The pipeline is triggered 
+    whenever you make a change to your source code.
+
+So, in summary, the Dockerfile contains the instructions to build your application, 
+and the Jenkins pipeline contains the instructions to build the Docker image from the 
+Dockerfile, test the image, and push the image to a Docker registry.

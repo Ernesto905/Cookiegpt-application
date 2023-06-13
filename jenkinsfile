@@ -28,7 +28,7 @@ pipeline {
         stage('Configure Kubernetes') {
             // Create a yaml file deploying both docker pods 
             steps {
-                sh 'kubectl -f apply cookiegpt-deployment.yaml'
+                sh 'kubectl apply -f cookiegpt-deployment.yaml'
             }
         }
         stage('Test') {

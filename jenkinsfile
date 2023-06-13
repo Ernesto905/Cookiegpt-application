@@ -10,6 +10,7 @@ pipeline {
 
                 sh '''
                     cd src
+                    docker --help
                     docker build -t ernesto906/cookiegpt .
                 '''
                 

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CookieGPT-deployment
+  name: cookiegpt-deployment
   labels:
-    app: CookieGPT
+    app: cookiegpt
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: CookieGPT
+      app: cookiegpt
   template:
     metadata:
       labels:
-        app: CookieGPT
+        app: cookiegpt
     spec:
       containers:
-        - name: CookieGPT
+        - name: cookiegpt
           image: ernesto906/cookiegpt
           ports: 
             - containerPort: 5000

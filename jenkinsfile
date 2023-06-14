@@ -4,6 +4,13 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
     stages {
+        stage('gitlab') {
+          steps {
+             echo 'Notify GitLab'
+             updateGitlabCommitStatus name: 'build', state: 'pending'
+             updateGitlabCommitStatus name: 'build', state: 'success'
+          }
+       }
         // Begins the process of building a docker image and uploading it to dockerhub 
         stage('Build') {
             steps {
@@ -23,23 +30,6 @@ pipeline {
         stage('Push') {
             steps {
                 sh 'docker push ernesto906/cookiegpt'
-            }
-        }
-        stage('Configure Kubernetes') {
-            // Create a yaml file deploying both docker pods 
-            steps {
-                sh 'kubectl apply -f cookiegpt-deployment.yaml'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                // sh 'kubectl apply -f your-k8s-config.yaml'
             }
         }
     }

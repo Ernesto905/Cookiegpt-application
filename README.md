@@ -28,7 +28,8 @@
 5. Run the app:
 
    ```bash
-   $ flask run
+   $ export FLASK_APP=app.py
+   $ python3 -m flask run
    ```
 
 You should now be able to access the app at [http://localhost:5000](http://localhost:5000)!

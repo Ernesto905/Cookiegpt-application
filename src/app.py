@@ -11,7 +11,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 def get_redis():
-    return redis.Redis(host='localhost', port=6379, decode_responses=True)
+    return redis.Redis(host='redis-service', port=6379, decode_responses=True)
     # might be useful with docker 
     # if not hasattr(g, 'redis'):
     #     g.redis = redis.Redis(host="redis", db=0, socket_timeout=5)

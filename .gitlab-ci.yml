@@ -11,5 +11,5 @@ upload-container:
     before_script:
         - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
     script:
-        - docker built -t ernesto906/cookiegpt .
+        - docker build -t ernesto906/cookiegpt .
         - docker push ernesto906/cookiegpt

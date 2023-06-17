@@ -1,0 +1,15 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+
+upload-container:  
+    stage: build
+    image: docker:24.0.2
+    services:
+        - docker:24.0.2-dind
+    variables:
+        DOCKERTLS_CERTDIR: "/certs"
+    before_script:
+        - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
+    script:
+        - docker built -t ernesto906/cookiegpt .
+        - docker push ernesto906/cookiegpt

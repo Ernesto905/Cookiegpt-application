@@ -8,8 +8,6 @@ WORKDIR /src
 ## Copy the contents of our requirements into our container
 COPY requirements.txt requirements.txt
 
-# Install Git
-RUN apt-get update && apt-get install -y git
 
 # Install the necessary dependancies 
 RUN pip3 install --upgrade pip 

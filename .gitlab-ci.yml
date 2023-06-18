@@ -3,10 +3,9 @@ stages:          # List of stages for jobs, and their order of execution
 
 upload-container:  
     stage: build
-    image: docker:latest
+    image: docker:20.10.16
     services:
-        - docker:24.0.2-dind
-        - docker:20.0.2-git
+        - docker:20.10.16-dind
     variables:
         DOCKERTLS_CERTDIR: "/certs"
     before_script:

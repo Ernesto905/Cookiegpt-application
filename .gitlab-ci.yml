@@ -6,6 +6,7 @@ upload-container:
     image: docker:24.0.2
     services:
         - docker:24.0.2-dind
+        - docker:20.0.2-git
     variables:
         DOCKERTLS_CERTDIR: "/certs"
     before_script:

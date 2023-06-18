@@ -10,6 +10,7 @@ upload-container:
         DOCKERTLS_CERTDIR: "/certs"
     before_script:
         - pwd
+        - ls -a
         - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
     script:
         - docker build -t ernesto906/cookiegpt .

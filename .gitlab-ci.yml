@@ -3,7 +3,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 upload-container:  
     stage: build
-    image: docker:24.0.2
+    image: docker:latest
     services:
         - docker:24.0.2-dind
         - docker:20.0.2-git

@@ -12,8 +12,11 @@ app = Flask(__name__)
 
 def get_secret():
     secret_path = "/mnt/secrets-store/openAIKey"
+    print("this is a message inside the thing with the thing")
     try:
         with open(secret_path, 'r') as secret_file:
+            print("Inside the try block, under me is secret :)")
+
             secret = secret_file.read().strip()
             print(secret)
         return secret
@@ -21,7 +24,7 @@ def get_secret():
         print(f"Secret file not found at {secret_path}")
         return None
 
-
+print("dsifaokhfdfiuashfudifasgfdisofhasdioufsagfsuioafhgasiufsgfhiasufhagsfuisagfuiagfaiusgdiuadgffuaigfsduif")
 # Comment out one 
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = get_secret()

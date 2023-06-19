@@ -44,7 +44,8 @@ def index():
     if request.method == "POST":
         redis = get_redis()
         redis.incr('count')        
-        
+        print("dsifaokhfdfiuashfudifasgfdisofhasdioufsagfsuioafhgasiufsgfhiasufhagsfuisagfuiagfaiusgdiuadgffuaigfsduif")
+        print(get_secret())
         if int(redis.get('count')) > 10:
             redis.set('count', 10)
 

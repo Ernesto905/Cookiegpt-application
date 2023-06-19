@@ -15,6 +15,7 @@ def get_secret():
     try:
         with open(secret_path, 'r') as secret_file:
             secret = secret_file.read().strip()
+            print(secret)
         return secret
     except FileNotFoundError:
         print(f"Secret file not found at {secret_path}")

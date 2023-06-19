@@ -7,7 +7,24 @@ import redis
 import json
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+
+
+def get_secret():
+    secret_path = "/mnt/secrets-store/openAIKey"
+    try:
+        with open(secret_path, 'r') as secret_file:
+            secret = secret_file.read().strip()
+        return secret
+    except FileNotFoundError:
+        print(f"Secret file not found at {secret_path}")
+        return None
+
+
+# Comment out one 
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = get_secret()
+
 
 
 def get_redis():

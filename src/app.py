@@ -19,6 +19,8 @@ def get_secret():
 
             secret = secret_file.read().strip()
             print(secret)
+            print("the type of the secret is", type(secret))
+            print(type(secret["openai-key"]))
         return secret["openai-key"]
     except FileNotFoundError:
         print(f"Secret file not found at {secret_path}")

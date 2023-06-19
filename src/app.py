@@ -19,12 +19,11 @@ def get_secret():
 
             secret = secret_file.read().strip()
             print(secret)
-        return secret
+        return secret["openai-key"]
     except FileNotFoundError:
         print(f"Secret file not found at {secret_path}")
         return None
 
-print("dsifaokhfdfiuashfudifasgfdisofhasdioufsagfsuioafhgasiufsgfhiasufhagsfuisagfuiagfaiusgdiuadgffuaigfsduif")
 # Comment out one 
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = get_secret()
@@ -44,8 +43,6 @@ def index():
     if request.method == "POST":
         redis = get_redis()
         redis.incr('count')        
-        print("dsifaokhfdfiuashfudifasgfdisofhasdioufsagfsuioafhgasiufsgfhiasufhagsfuisagfuiagfaiusgdiuadgffuaigfsduif")
-        print(get_secret())
         if int(redis.get('count')) > 10:
             redis.set('count', 10)
 

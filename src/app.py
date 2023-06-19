@@ -17,7 +17,8 @@ def get_secret():
         with open(secret_path, 'r') as secret_file:
             print("Inside the try block, under me is secret :)")
 
-            secret = secret_file.read().strip()
+            mountedSecret = secret_file.read().strip()
+            secret = json.loads(mountedSecret)
             print(secret)
             print("the type of the secret is", type(secret))
             print(type(secret["openai-key"]))

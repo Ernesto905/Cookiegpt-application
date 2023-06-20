@@ -74,5 +74,5 @@ def generate_prompt(currentCharacter, currentLevel):
         for example, level 0 is 'Haha good job clicking on that cookie, very impressive'.
         And you work your way up. On level ten you'll act completely annoyed by my clicking
         on the cookie. the current level is {}. 
-        Do not break character and make it very funny. Remember that you are {}. Try to act like this person as much as possible.""".format( currentCharacter, 
+        Do not break character and make it very funny. Remember that you are {}. Try to act like this person as much as possible. Start your statement with 'This is' and then your name.""".format( currentCharacter, 
                                                                   currentLevel, currentCharacter) 

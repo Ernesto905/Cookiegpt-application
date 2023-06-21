@@ -64,7 +64,7 @@ def index():
 
         return redirect(url_for("index", result=(response.choices[0].text)))
 
-    result = "Current level: ${redis.get('count')}." + request.args.get("result")
+    result = "Current level: " + redis.get('count') + "\n" + request.args.get("result")
     return render_template("index.html", result=result)
 
 

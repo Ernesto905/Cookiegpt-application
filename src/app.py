@@ -51,7 +51,7 @@ def index():
 
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt("Elon Musk", redis.get('count')),
+            prompt=generate_prompt("Elon musk", redis.get('count')),
             temperature=0.6,
             max_tokens=200
         )  

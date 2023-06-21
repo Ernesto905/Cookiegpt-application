@@ -51,7 +51,7 @@ def index():
 
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt("Elon Musk", redis.get('count')),
+            prompt=generate_prompt("Micheal Jackson", redis.get('count')),
             temperature=0.6,
             max_tokens=200
         )  
@@ -62,9 +62,9 @@ def index():
             return redirect(url_for("index", result=''))
 
 
-        return redirect(url_for("index", result=("Current level: ${redis.get('count')}." + response.choices[0].text)))
+        return redirect(url_for("index", result=(response.choices[0].text)))
 
-    result = request.args.get("result")
+    result = "Current level: ${redis.get('count')}." + request.args.get("result")
     return render_template("index.html", result=result)
 
 

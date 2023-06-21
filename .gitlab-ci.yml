@@ -12,5 +12,5 @@ upload-container:
         - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
         - cd src
     script:
-        - docker build -t ernesto906/cookiegpt:1.0.0 .
-        - docker push ernesto906/cookiegpt:1.0.0
+        - docker build -t ernesto906/cookiegpt:1.0.1 .
+        - docker push ernesto906/cookiegpt:1.0.1

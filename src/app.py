@@ -47,7 +47,7 @@ def index():
         redis = get_redis()
         redis.incr('count')        
         if int(redis.get('count')) > 10:
-            redis.set('count', 10)
+            redis.set('count', 1)
 
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -62,14 +62,14 @@ def index():
             return redirect(url_for("index", result=''))
 
 
-        return redirect(url_for("index", result=(response.choices[0].text)))
+        return redirect(url_for("index", result=("Current level: ${redis.get('count')}." + response.choices[0].text)))
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
 
 
 def generate_prompt(currentCharacter, currentLevel):
-    return """ You will roleplay as {}, on a scale of 0 to 10, 
+    return """ You will roleplay as {}, on a scale of 1 to 10, 
         you will reply passive aggresively to my clicking on a cookie. 
         for example, level 0 is 'Haha good job clicking on that cookie, very impressive'.
         And you work your way up. On level ten you'll act completely annoyed by my clicking

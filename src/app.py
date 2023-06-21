@@ -45,13 +45,14 @@ def get_redis():
 def index():
     if request.method == "POST":
         redis = get_redis()
-        redis.incr('count')        
+        redis.incr('count')   
+        currentCount = redis.get('count')     
         if int(redis.get('count')) > 10:
             redis.set('count', 1)
 
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt("Micheal Jackson", redis.get('count')),
+            prompt=generate_prompt("Elon Musk", redis.get('count')),
             temperature=0.6,
             max_tokens=200
         )  
@@ -62,9 +63,9 @@ def index():
             return redirect(url_for("index", result=''))
 
 
-        return redirect(url_for("index", result=(response.choices[0].text)))
+        return redirect(url_for("index", result=("Current level: " + str(currentCount) + "\n" + response.choices[0].text)))
 
-    result = "Current level: " + redis.get('count') + "\n" + request.args.get("result")
+    result = request.args.get("result")
     return render_template("index.html", result=result)
 
 

@@ -46,13 +46,14 @@ def index():
     if request.method == "POST":
         redis = get_redis()
         redis.incr('count')   
-        currentCount = redis.get('count')     
+           
         if int(redis.get('count')) > 10:
             redis.set('count', 1)
-
+        currentCount = redis.get('count')  
+        
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt("Elon Musk", redis.get('count')),
+            prompt=generate_prompt("Donald trump", redis.get('count')),
             temperature=0.6,
             max_tokens=200
         )  

@@ -1,5 +1,7 @@
 # COOKIEGPT - A simple application, overengineered 👩‍🔧🔧⚙️🚀
 
+Note, the purpose of this app was to enhance my understanding of platform engineering. Most of the focus was on automating the infrastructure, integration, and deployment of this application. If you want to check that out, [click me!](https://github.com/Ernesto905/cookiegpt-infrastructure)
+
 ## Quick Setup, without the pipeline
 
 ### Ensure you are in the src file and that you have python >= 3.7 installed 
